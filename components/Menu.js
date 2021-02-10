@@ -53,3 +53,15 @@ function menuMaker(arr) {
 }
 
 document.querySelector(".header").appendChild(menuMaker(menuItems));
+
+let openMen = false;
+
+document.querySelector("body").addEventListener("click", function (e) {
+  if (openMen === false && e.target.nodeName === "IMG") {
+    gsap.to(".menu", 2.5, { left: "+=350", ease: "bounce" });
+    return (openMen = true);
+  } else if (openMen === true) {
+    gsap.to(".menu", 2.5, { left: "-=350", ease: "bounce" });
+    return (openMen = false);
+  }
+});
